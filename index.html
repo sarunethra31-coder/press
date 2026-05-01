@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Ramakrishna Press</title>
+    <meta name="description" content="Order form for Sri Ramakrishna Press">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+    
+    <div class="form-container">
+        <form class="glass-form" id="contact-form" action="https://formsubmit.co/sarunethra46@gmail.com" method="POST">
+            <!-- Hidden fields for FormSubmit -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Print Order from Website">
+            <input type="hidden" name="_next" value="http://127.0.0.1:5000">
+            <h2>Sri Ramakrishna Press</h2>
+            <p>Please fill out your order details below.</p>
+            
+            <div class="input-group">
+                <input type="text" id="name" name="Name" required placeholder=" ">
+                <label for="name">Customer Name</label>
+            </div>
+            
+            <div class="input-group">
+                <input type="tel" id="phone" name="Phone" required placeholder=" ">
+                <label for="phone">Phone Number</label>
+            </div>
+            
+            <div class="input-group">
+                <textarea id="address" name="Address" rows="2" required placeholder=" "></textarea>
+                <label for="address">Address</label>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" id="email" name="Email" required placeholder=" ">
+                <label for="email">Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <select id="print_type" name="Printing Type" required>
+                    <option value="" disabled selected hidden>Select Printing Type</option>
+                    <option value="Wedding Invitation">Wedding Invitation</option>
+                    <option value="Other Invitation">Other Invitation</option>
+                    <option value="Business Cards">Business Cards</option>
+                    <option value="Flyers / Posters">Flyers / Posters</option>
+                    <option value="Bill Books">Bill Books</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <textarea id="details" name="Other Details" rows="3" placeholder=" "></textarea>
+                <label for="details">Other Details / Specifications</label>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submit-btn">
+                <span>Submit</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

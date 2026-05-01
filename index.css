@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #0f172a; /* Slate 900 */
+    display: flex;
+    position: relative;
+    color: #e2e8f0; /* Slate 200 */
+    padding: 40px 20px;
+}
+
+/* Background Animated Shapes */
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    animation: float 10s infinite ease-in-out alternate;
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background: #8b5cf6; /* Violet 500 */
+    top: -100px;
+    left: -100px;
+    opacity: 0.4;
+}
+
+.shape-2 {
+    width: 350px;
+    height: 350px;
+    background: #3b82f6; /* Blue 500 */
+    bottom: -50px;
+    right: -50px;
+    opacity: 0.5;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(50px, 50px) scale(1.1);
+    }
+}
+
+/* Form Container */
+.form-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.glass-form {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.glass-form h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.glass-form p {
+    color: #94a3b8; /* Slate 400 */
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Input Styles */
+.input-group {
+    position: relative;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 1rem;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.input-group select option {
+    background-color: #1e293b;
+    color: #fff;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    color: #94a3b8;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus,
+.input-group input:hover,
+.input-group textarea:hover,
+.input-group select:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+/* Floating Label Magic */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 12px;
+    font-size: 0.8rem;
+    background-color: #1e293b; /* Fallback for transparency */
+    /* Since we have a glass form, a solid background for the label might break the illusion if it crosses the border.
+       Using a darker solid color or keeping it transparent with text-shadow works better. */
+    background: #141d2f; 
+    padding: 0 8px;
+    border-radius: 4px;
+    color: #a78bfa; /* Violet 400 */
+    font-weight: 500;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.3);
+    margin-top: 8px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 20px -3px rgba(139, 92, 246, 0.4);
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover svg {
+    transform: translate(4px, -4px);
+}
